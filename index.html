@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Jarvis</title>
+</head>
+<body style="text-align:center; font-family:sans-serif;">
+  <h1>🤖 My Jarvis Assistant</h1>
+  <button onclick="startListening()">Start Listening</button>
+  <p id="output"></p>
+
+  <script>
+    function startListening() {
+      const recognition = new webkitSpeechRecognition();
+      recognition.onresult = function(event) {
+        document.getElementById("output").innerText = event.results[0][0].transcript;
+      }
+      recognition.start();
+    }
+  </script>
+</body>
+</html>
+
